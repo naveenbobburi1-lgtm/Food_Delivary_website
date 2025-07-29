@@ -4,7 +4,7 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom/client'
 
-const TestMessage = () => <div style={{ color: 'red' }}>If you see this, React is rendering.</div>;
+const TestMessage = () => <div style={{ color: 'red' }}></div>;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
