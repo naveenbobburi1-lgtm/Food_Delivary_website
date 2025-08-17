@@ -3,12 +3,14 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom/client'
-
-const TestMessage = () => <div style={{ color: 'red' }}></div>;
+import { StoreContextProvider } from './context/StoreContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <TestMessage />
-    <App />
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <StoreContextProvider>
+        <App />
+      </StoreContextProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 )
