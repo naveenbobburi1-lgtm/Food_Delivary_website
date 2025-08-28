@@ -14,8 +14,9 @@ const FoodDisplay = ({category}) => {
         <div className='food-display' id = 'food-display'>
             <h2>Top Dishes Near You</h2>
             <div className="food-display-list">
-                {filteredFoodList.map((item,index) => (
-                    <FoodItem 
+                {filteredFoodList.map((item,index) => {
+                    if(category === "All" || item.category === category) {
+                     return <FoodItem 
                         key={index}
                         id={item._id}
                         name={item.name}
@@ -23,7 +24,8 @@ const FoodDisplay = ({category}) => {
                         price={item.price}
                         image={item.image}
                     />
-                ))}
+                    }
+                })}
             </div>
         </div>
     )
