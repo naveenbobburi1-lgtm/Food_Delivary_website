@@ -14,8 +14,25 @@ const Footer = () => {
                     <img src={assets.linkedin_icon} alt="" />
                 </div>
             </div>
+            <div className="food-content-center">
+              <h2>Company</h2>
+              <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>delivery</li>
+                <li>privacy policy</li>
+              </ul>
+            </div>
+            <div className="food-content-right">
+              <h2>Get in Touch</h2>
+              <ul>
+                <li>+91 938538429</li>
+                <li>naveenbobburi60@gmail.com</li>
+              </ul>
+            </div>
         </div>
-      
+        <hr />
+        <p className='footer-bottom-text'>Copyright @2024 Foodie. All rights reserved</p>
     </div>
   )
 }
