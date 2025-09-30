@@ -4,19 +4,7 @@ import { food_list } from "../assets/frontend_assets/assets";
 export const StoreContext = createContext(null);
 
 export const StoreContextProvider = (props) => {
-    const [cartItems, setCartItems] = useState({});
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        try {
-            setLoading(true);
-            // Initialize any required data here
-            setLoading(false);
-        } catch (error) {
-            console.error("Context Error:", error);
-            setLoading(false);
-        }
-    }, []);
+    const [cartItems,setCartItems] = useState({});
 
     const addToCart = (itemId)=>{
         if(!cartItems[itemId]){
@@ -27,14 +15,7 @@ export const StoreContextProvider = (props) => {
         }
     }
     const removeFromCart= (itemId) =>{
-        setCartItems((prev) => {
-            const currentQty = prev[itemId] || 0;
-            if (currentQty <= 1) {
-                const { [itemId]: _, ...rest } = prev;
-                return rest;
-            }
-            return { ...prev, [itemId]: currentQty - 1 };
-        });
+        setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
     }
     useEffect(()=>{
         console.log(cartItems);
@@ -45,14 +26,9 @@ export const StoreContextProvider = (props) => {
         cartItems,
         setCartItems,
         addToCart,
-        removeFromCart,
-        loading
+        removeFromCart
     }
     
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
     return (
         <StoreContext.Provider value={contextValue}>
             {props.children}
