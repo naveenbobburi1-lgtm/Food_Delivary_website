@@ -13,11 +13,20 @@ const LoginPopup = ({setShowLogin}) => {
             <img onClick={()=>setShowLogin(false)} src={assets.cross_icon} alt="" />
         </div>
         <div className="login-popup-inputs">
-            {currState==="Login"?<input type="text" placeholder='Enter your name' />:<></>}
+            {currState==="Sing Up"?<input type="text" placeholder='Enter your name' />:<></>}
             <input type="text" placeholder='Enter your email' />
             <input type="text" placeholder='Enter your password' />
         </div>
-        <button>{currState==="Sing Up"?"Create Account":"Login "}</button>
+        <button>{currState==="Sing Up"?"Create Account":"Login"}</button>
+        <div className="login-popup-condition">
+          <input type="checkbox" required/>
+          <p>By continuing,I agree terms of use and privacy policy</p>
+        </div>
+        {
+          currState==="login"?
+          <p>Create a New Account? <span onClick={()=>setCurrState("Sing Up")}>Click here</span></p>
+          :<p>Already have an Account? <span onClick={()=>setCurrState("login")}>Login here</span></p>
+        }
       </form>
     </div>
   )
