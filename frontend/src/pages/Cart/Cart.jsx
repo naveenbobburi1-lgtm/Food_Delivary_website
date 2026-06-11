@@ -4,7 +4,7 @@ import { StoreContext } from '../../context/store-context'
 import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
-  const { cartItems, food_list, removeFromCart,getTotalCartAmount } = React.useContext(StoreContext)
+  const { cartItems, food_list, removeFromCart, getTotalCartAmount } = React.useContext(StoreContext)
   const navigate = useNavigate();
   const subtotal = getTotalCartAmount()
   const deliveryFee = subtotal === 0 ? 0 : 2
@@ -41,33 +41,33 @@ const Cart = () => {
         })}
       </div>
       <div className="cart-bottom">
-       
+
         <div className="cart-total">
           <h2>Cart Total</h2>
           <div>
             <div className="cart-total-details">
               <p>Subtotal</p>
-              <p>${subtotal}</p>
+              <p>${getTotalCartAmount()}</p>
             </div>
-            <hr/>
+            <hr />
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>${deliveryFee}</p>
+              <p>${getTotalCartAmount===0?0:2}</p>
             </div>
-            <hr/>
+            <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${subtotal + deliveryFee}</b>
+              <b>${getTotalCartAmount()===0?0:getTotalCartAmount()+2}</b>
             </div>
-            <button onClick={()=>navigate('/order')}>Proceed to Checkout</button>
+            <button onClick={() => navigate('/order')}>Proceed to Checkout</button>
           </div>
         </div>
-         <div className="cart-promocode">
+        <div className="cart-promocode">
           <h3>Have a Promo Code?</h3>
           <p>If you have a promo code, enter it here</p>
           <div className="cart-promocode-input">
             <input type="text" placeholder='Enter promo code' />
-            <button onClick={()=>navigate('/order')}>Apply</button>
+            <button onClick={() => navigate('/order')}>Apply</button>
           </div>
         </div>
       </div>
