@@ -13,18 +13,18 @@ const foodSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    image: {
+    category: {
         type: String,
         required: true
     },
-    category: {
+    image: {
         type: String,
         required: true
     }
 });
 
 
-const foodModel = mongoose.models.food || mongoose.model('food', foodSchema);
+const foodmodel = mongoose.models.food || mongoose.model('food', foodSchema);
 
 
-export default foodModel;
+export default foodmodel;
