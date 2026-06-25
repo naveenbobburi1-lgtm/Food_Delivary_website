@@ -13,6 +13,8 @@ const addfood = async (req, res) => {
         image: image_filename,
         category: req.body.category
     })
+    console.log("Body:", req.body);
+console.log("File:", req.file);
     try {
         await food.save();
         res.json({ success: true, message: "Food item added successfully" });

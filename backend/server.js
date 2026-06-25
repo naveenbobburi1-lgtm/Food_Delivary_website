@@ -13,6 +13,9 @@ app.use(express.json());
 app.use(cors());
 //db connection
 connectDB();
+import mongoose from "mongoose";
+
+console.log("Mongo State:", mongoose.connection.readyState);
 
 //api endpoints
 app.use('/api/food', foodrouter);
