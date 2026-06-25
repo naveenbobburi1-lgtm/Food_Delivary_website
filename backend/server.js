@@ -10,11 +10,9 @@ const port = process.env.PORT || 8000;
 
 //middlewares
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 //db connection
-connectDB(); 
-
+connectDB();
 
 //api endpoints
 app.use('/api/food', foodrouter);
